@@ -53,7 +53,7 @@ var books =
         "id":7,
         "title":"Pathummayude aadu", 
         "author":"Basheer",
-        "image":"/images/pathu.jpg",
+        "image":"/images/book2.jpg",
     }
 
 ]

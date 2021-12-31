@@ -46,7 +46,7 @@ var authors =
     {
         "id":7,
         "title":"vaikom muhammad basheer", 
-        "image":"/images/basheer.jfif",
+        "image":"/images/book2.jpg",
         "about":"Vaikom Muhammad Basheer, also known as Beypore Sulthan, was an Indian independence activist and writer of Malayalam literature"
     }
 
