@@ -24,7 +24,7 @@ authorsRouter.get('/',function(req,res){
 authorsRouter.get('/addauthor',function(req,res){
     res.render('addauthor',{});
 
-})
+});
 
 
 
@@ -47,6 +47,7 @@ authorsRouter.post('/add', function (req, res) {
 
 
 
+
 //router for single author
 authorsRouter.get('/:id',function(req,res){
     const id = req.params.id;
@@ -58,39 +59,25 @@ authorsRouter.get('/:id',function(req,res){
 
             })
     
-})
+});
 
 
 
 
 //router to delete author
-// authorsRouter.post('/delete', function (req, res) {
-
-//     const id = req.body.id;  
-
-//     authordata.findOneAndDelete({ _id: id })
-//         .then(function () {
-
-//             res.redirect('/authors')
-
-//         })  
-// })
-
 authorsRouter.post('/delete', function (req, res) {
 
     const id = req.body.id;  
 
-    authordata.findOneAndDelete({ _id: id }, function(err, data){
-        if (err) {
-            throw err;
-        }
-        else {
+    authordata.deleteOne({ _id: id })
+        .then(function () {
 
             res.redirect('/authors')
-        }
 
-    })  
+        })  
 })
+
+
 
 
 
@@ -111,8 +98,8 @@ authorsRouter.post('/edit', function (req, res) {
 
 
 //router to update author
-authorsRouter.post('/update', function (req, res) {
-
+authorsRouter.post('/update', function (req, res) {//Part #2 Point 9
+    console.log(req.body.id)
     authordata.findByIdAndUpdate(req.body.id, { $set: req.body }, function (err, data) {
         if (err) {
             res.json({ status: "Failed" });

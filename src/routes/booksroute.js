@@ -24,7 +24,7 @@ booksRouter.get('/',function(req,res){
 booksRouter.get('/addbook',function(req,res){
     res.render('addbook',{});
 
-})
+});
 
 
 
@@ -35,7 +35,7 @@ booksRouter.post('/add', function (req, res) {
         var item={
             title:req.body.title,
             author:req.body.author,
-            image:req.body.image,
+            image:req.body.images,//Part #2 Point 8
             about:req.body.about
         }
         console.log(item)  ;
@@ -58,7 +58,7 @@ booksRouter.get('/:id',function(req,res){
 
             })
     
-})
+});
 
 
 
@@ -68,7 +68,7 @@ booksRouter.post('/delete', function (req, res) {
 
     const id = req.body.id;  
 
-    bookdata.findOneAndDelete({ _id: id })
+    bookdata.deleteOne({ _id: id })//Part #2 Point 9
         .then(function () {
 
             res.redirect('/books')
